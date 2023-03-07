@@ -8,7 +8,7 @@ pub const Package = struct {
         b: *std.Build,
         _: struct {},
     ) Package {
-        const zsdl = b.createModule(.{
+        const zsdl = b.addModule("zsdl", .{
             .source_file = .{ .path = thisDir() ++ "/src/zsdl.zig" },
         });
         return .{
