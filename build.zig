@@ -30,17 +30,17 @@ pub fn build(b: *std.Build) void {
     // ensureGitLfsContent("/samples/triangle_wgpu/triangle_wgpu_content/Roboto-Medium.ttf") catch return;
 
     // Fetch the latest Dawn/WebGPU binaries.
-    const skip_dawn_update = b.option(bool, "skip-dawn-update", "Skip updating Dawn binaries") orelse false;
-    if (!skip_dawn_update) {
-        var child = std.ChildProcess.init(&.{ "git", "submodule", "update", "--init", "--remote" }, b.allocator);
-        child.cwd = thisDir();
-        child.stderr = std.io.getStdErr();
-        child.stdout = std.io.getStdOut();
-        _ = child.spawnAndWait() catch {
-            std.log.err("Failed to fetch git submodule. Please try to re-clone.", .{});
-            return;
-        };
-    }
+    // const skip_dawn_update = b.option(bool, "skip-dawn-update", "Skip updating Dawn binaries") orelse false;
+    // if (!skip_dawn_update) {
+    //     var child = std.ChildProcess.init(&.{ "git", "submodule", "update", "--init", "--remote" }, b.allocator);
+    //     child.cwd = thisDir();
+    //     child.stderr = std.io.getStdErr();
+    //     child.stdout = std.io.getStdOut();
+    //     _ = child.spawnAndWait() catch {
+    //         std.log.err("Failed to fetch git submodule. Please try to re-clone.", .{});
+    //         return;
+    //     };
+    // }
     // ensureGitLfsContent("/libs/zgpu/libs/dawn/x86_64-windows-gnu/dawn.lib") catch return;
 
     //
