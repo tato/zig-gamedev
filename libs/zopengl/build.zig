@@ -25,7 +25,7 @@ pub const Package = struct {
 
         const options = options_step.createModule();
 
-        const zopengl = b.createModule(.{
+        const zopengl = b.addModule("zopengl", .{
             .source_file = .{ .path = thisDir() ++ "/src/zopengl.zig" },
             .dependencies = &.{
                 .{ .name = "zopengl_options", .module = options },

@@ -10,7 +10,7 @@ pub const Package = struct {
         optimize: std.builtin.Mode,
         _: struct {},
     ) Package {
-        const zglfw = b.createModule(.{
+        const zglfw = b.addModule("zglfw", .{
             .source_file = .{ .path = thisDir() ++ "/src/zglfw.zig" },
         });
 
